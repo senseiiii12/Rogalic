@@ -8,50 +8,42 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float speed;
+    float horizontal;
+    float vertical;
     Vector2 direction;
     Animator animator;
+    new Rigidbody2D rigidbody2D;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetInput();
-        Move();
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");     
+    } 
+    private void FixedUpdate()
+    {
+        if (horizontal != 0 || vertical != 0)
+        {
+            AnimatorMovement(horizontal, vertical);
+        }
+        else
+        {
+            //animator.SetLayerWeight(1, 0);
+        }
+        rigidbody2D.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
 
-    void GetInput()
+    private void AnimatorMovement(float x, float y)
     {
-        direction = Vector2.zero;
-        if (Input.GetKey(KeyCode.W))
-        {
-            direction += Vector2.up;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            direction += Vector2.down;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            direction += Vector2.left;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            direction += Vector2.right;
-        }
-    }
-    private void Move()
-    {
-        transform.Translate(direction * speed * Time.deltaTime);
-        AnimatorMovement(direction);
-    }
-
-    private void AnimatorMovement(Vector2 direction)
-    {
-        animator.SetFloat("DirectionX", direction.x);
-        animator.SetFloat("DirectionY", direction.y);
+        //animator.SetLayerWeight(1, 1);
+        animator.SetFloat("DirectionX", x);
+        animator.SetFloat("DirectionY", y);
     }
 }
