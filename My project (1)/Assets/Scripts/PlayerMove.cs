@@ -35,14 +35,14 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            //animator.SetLayerWeight(1, 0);
+            animator.SetLayerWeight(1, 0);
         }
         rigidbody2D.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
 
     private void AnimatorMovement(float x, float y)
     {
-        //animator.SetLayerWeight(1, 1);
+        animator.SetLayerWeight(1, 1);
         animator.SetFloat("DirectionX", x);
         animator.SetFloat("DirectionY", y);
     }
