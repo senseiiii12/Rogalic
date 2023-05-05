@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomSpell : MonoBehaviour
+public class BitCoin: MonoBehaviour
 {
-    public int minD;
-    public int maxD;
+    public int denomination;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 3);
+        
     }
 
     // Update is called once per frame
@@ -19,13 +18,11 @@ public class CustomSpell : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int damage = Random.Range(minD, maxD);
-        ScriptEnemy enemy = collision.GetComponent<ScriptEnemy>();
-        if (enemy != null)
+        Debug.Log(collision.name);
+        if(collision.tag == "Player")
         {
-            enemy.TakeDamage(damage);
+            PlayerStats.plStats.bitCoins += denomination;
             Destroy(gameObject);
         }
-       
     }
 }

@@ -10,6 +10,7 @@ public class ScriptEnemy : MonoBehaviour
     GameObject player;
     public float force;
     public float cooldown;
+    public GameObject prefCoin;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class ScriptEnemy : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        Instantiate(prefCoin, gameObject.transform.position, Quaternion.identity);
     }
     void enemyShooting()
     {

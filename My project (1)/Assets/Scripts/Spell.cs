@@ -22,7 +22,7 @@ public class Spell : MonoBehaviour
             Vector2 myPosition = transform.position;
             Vector2 direction = mPosition - myPosition;
             spell.GetComponent<Rigidbody2D>().velocity = direction * force;
-            Destroy(spell, 1);
+            Destroy(spell, 2);
         }
 
     }

@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float speed;
     float horizontal;
     float vertical;
     Vector2 direction;
@@ -37,7 +36,7 @@ public class PlayerMove : MonoBehaviour
         {
             animator.SetLayerWeight(1, 0);
         }
-        rigidbody2D.velocity = new Vector2(horizontal * speed, vertical * speed);
+        rigidbody2D.velocity = new Vector2(horizontal * PlayerStats.plStats.speed, vertical * PlayerStats.plStats.speed);
     }
 
     private void AnimatorMovement(float x, float y)
