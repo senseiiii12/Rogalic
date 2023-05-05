@@ -18,11 +18,11 @@ public class BitCoin: MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
+        
         if(collision.tag == "Player")
         {
             PlayerStats.plStats.bitCoins += denomination;
             Destroy(gameObject);
         }
     }
-}
+} 

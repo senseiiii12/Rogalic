@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class ScriptEnemy : MonoBehaviour
@@ -11,11 +13,16 @@ public class ScriptEnemy : MonoBehaviour
     public float force;
     public float cooldown;
     public GameObject prefCoin;
+
+    public int minDamage;
+    public int maxDamage;
+    PlayerStats stats;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         InvokeRepeating("enemyShooting", cooldown, cooldown);
+        stats = GameObject.FindAnyObjectByType<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -45,5 +52,15 @@ public class ScriptEnemy : MonoBehaviour
         Vector2 direction = mPosition - myPosition;
         spell.GetComponent<Rigidbody2D>().velocity = direction * force;
         Destroy(spell, 3);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        int damage = UnityEngine.Random.Range(minDamage, maxDamage);
+        PlayerMove player = collision.GetComponent<PlayerMove>();
+        if (player != null)
+        {
+            stats.getDamage(damage); 
+        }
     }
 }
