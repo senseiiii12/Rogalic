@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScriptEnemy : MonoBehaviour
 {
@@ -17,6 +19,11 @@ public class ScriptEnemy : MonoBehaviour
     public int minDamage;
     public int maxDamage;
     PlayerStats stats;
+
+    public GameObject hBarEnemy;
+    public Slider hBarEnemySlider;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +39,9 @@ public class ScriptEnemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        hBarEnemy.SetActive(true);
         health -= damage;
+        hBarEnemySlider.value = health;
         if (health <= 0)
         {
             Die();

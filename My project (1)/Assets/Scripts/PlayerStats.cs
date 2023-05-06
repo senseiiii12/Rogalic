@@ -12,11 +12,14 @@ public class PlayerStats : MonoBehaviour
     public float maxHealth;
     public float speed;
 
-    //public GameObject hBarPlayer;
-    //public Slider hBarPlayerSlider;
+
+    public GameObject hBarPlayer;
+    public Slider hBarPlayerSlider;
 
     public int bitCoins;
     public int souls;
+
+    public double passivHeal = 0.001;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,13 +30,13 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PassiveHeal();
     }
     public void getDamage(float damage)
     {
-        //hBarPlayer.SetActive(true);
-        //hBarPlayerSlider.value = health;
+        hBarPlayer.SetActive(true);
         health -= damage;
+        hBarPlayerSlider.value = health;
         if (health <= 0)
         {
             Die();
@@ -46,9 +49,23 @@ public class PlayerStats : MonoBehaviour
     public void getHeal(float heal)
     {
         health += heal;
+        hBarPlayerSlider.value = health;
         if (health > maxHealth)
         {
             health = maxHealth;
+        }
+    }
+
+    public void PassiveHeal()
+    {
+        if(health >= maxHealth)
+        {
+            health += 0;
+        }
+        else
+        {
+            health += (float)passivHeal ;
+            hBarPlayerSlider.value = health;
         }
     }
 }
