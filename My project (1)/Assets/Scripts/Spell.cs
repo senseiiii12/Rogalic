@@ -6,6 +6,7 @@ public class Spell : MonoBehaviour
 {
     public GameObject pref;
     public float force;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class Spell : MonoBehaviour
             Vector2 mPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 myPosition = transform.position;
             Vector2 direction = mPosition - myPosition;
-            spell.GetComponent<Rigidbody2D>().velocity = direction * force;
+            spell.GetComponent<Rigidbody2D>().velocity = direction * PlayerStats.plStats.force;
             Destroy(spell, 2);
         }
 

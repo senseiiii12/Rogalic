@@ -545,7 +545,7 @@ MonoBehaviour:
   health: 100
   pref: {fileID: 2567180294300579655, guid: ad945ddbdf746204485729adb6e19aac, type: 3}
   force: 2
-  cooldown: 78
+  cooldown: 3
   prefCoin: {fileID: 2897149420085708789, guid: 4fa7c8fc84a018646b51be08fa632542, type: 3}
   minDamage: 5
   maxDamage: 10
