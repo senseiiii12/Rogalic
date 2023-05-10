@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Spell : MonoBehaviour
 {
-    public GameObject pref;
-    public float force;
     
+    public GameObject pref;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +16,21 @@ public class Spell : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && PlayerStats.plStats.mana > 0)
         {
+            PlayerStats.plStats.mana -= 10;
+            PlayerStats.plStats.sliderMana.value = PlayerStats.plStats.mana;
             GameObject spell = Instantiate(pref, transform.position, Quaternion.identity);
             Vector2 mPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 myPosition = transform.position;
             Vector2 direction = mPosition - myPosition;
             spell.GetComponent<Rigidbody2D>().velocity = direction * PlayerStats.plStats.force;
             Destroy(spell, 2);
+        }
+        else if(PlayerStats.plStats.mana <= 0)
+        {
+            PlayerStats.plStats.mana = 0;
+            Debug.Log("no mana");
         }
 
     }

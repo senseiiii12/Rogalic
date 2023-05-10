@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7046930563200747477}
   - component: {fileID: 7046930563200747482}
   - component: {fileID: 7046930563200747478}
-  - component: {fileID: -1098993911921880115}
+  - component: {fileID: -1226249660759574055}
   m_Layer: 0
-  m_Name: BottleHeal
+  m_Name: BottleMana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1894406376, guid: 36871e2be3be15c46abe814ea7c3015c, type: 3}
+  m_Sprite: {fileID: 1566947837, guid: 36871e2be3be15c46abe814ea7c3015c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 7046930563200747483}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 27a7696555f29b94c9237da462cd26d5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 12b6483d5ea1a3741a3c4ee2e960834b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.105
---- !u!114 &-1098993911921880115
+--- !u!114 &-1226249660759574055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7046930563200747483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a28e8a6dbedb5624cb057e4bd43a2ed0, type: 3}
+  m_Script: {fileID: 11500000, guid: 628783e67727fd541b5aea8736fe3f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heal: 45
+  mana: 50

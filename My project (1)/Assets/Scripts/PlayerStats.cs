@@ -13,11 +13,14 @@ public class PlayerStats : MonoBehaviour
     public float speed;
     public int maxDamage;
     public int minDamage;
+    public float mana;
+    public float maxMana;
     public float force;
 
 
     //public GameObject hBarPlayer;
     public Slider hBarPlayerSlider;
+    public Slider sliderMana;
 
     public int bitCoins;
     public int souls;
@@ -27,6 +30,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(getMMana(15));
         plStats = this;
         health = maxHealth;
     }
@@ -56,6 +60,34 @@ public class PlayerStats : MonoBehaviour
         if (health > maxHealth)
         {
             health = maxHealth;
+        }
+    }
+
+    public void getMana(float manaa)
+    {
+        mana += manaa;
+        sliderMana.value = mana;
+        if (mana > maxMana)
+        {
+            mana = maxMana;
+        }
+    }
+
+    IEnumerator getMMana(float manaIteration)
+    {
+        while (true)
+        {
+            if (mana >= maxMana)
+            {
+                mana = maxMana;
+                yield return null;
+            }
+            else
+            {
+                mana += manaIteration;
+                sliderMana.value = mana;
+                yield return new WaitForSeconds(2);
+            }
         }
     }
 

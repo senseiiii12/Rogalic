@@ -15,6 +15,7 @@ public class ScriptEnemy : MonoBehaviour
     public float force;
     public float cooldown;
     public GameObject prefCoin;
+    public GameObject prefBottle;
 
     public int minDamage;
     public int maxDamage;
@@ -52,6 +53,7 @@ public class ScriptEnemy : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(prefCoin, gameObject.transform.position, Quaternion.identity);
+        Instantiate(prefBottle, gameObject.transform.position , Quaternion.identity);
     }
     void enemyShooting()
     {
