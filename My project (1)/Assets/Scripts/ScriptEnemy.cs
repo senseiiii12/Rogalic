@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +16,9 @@ public class ScriptEnemy : MonoBehaviour
     public float force;
     public float cooldown;
     public GameObject prefCoin;
-    public GameObject prefBottle;
+    public GameObject prefBottle_heal;
+    public GameObject prefBottle_mana;
+    public GameObject key;
 
     public int minDamage;
     public int maxDamage;
@@ -36,13 +39,12 @@ public class ScriptEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        hBarEnemySlider.value = health;
     }
     public void TakeDamage(int damage)
     {
         hBarEnemy.SetActive(true);
         health -= damage;
-        hBarEnemySlider.value = health;
         if (health <= 0)
         {
             Die();
@@ -52,8 +54,25 @@ public class ScriptEnemy : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
-        Instantiate(prefCoin, gameObject.transform.position, Quaternion.identity);
-        Instantiate(prefBottle, gameObject.transform.position , Quaternion.identity);
+        int random = UnityEngine.Random.Range(1,5);
+        switch (random)
+        {
+            case 1: 
+                Instantiate(prefCoin, gameObject.transform.position, Quaternion.identity);
+                break;
+            case 2:
+                Instantiate(prefBottle_heal, gameObject.transform.position, Quaternion.identity);
+                break ;
+            case 3:
+                Instantiate(prefBottle_mana, gameObject.transform.position, Quaternion.identity);
+                break;
+            case 4:
+                Instantiate(key, gameObject.transform.position, Quaternion.identity);
+                break;
+        }
+        
+        
+        
     }
     void enemyShooting()
     {

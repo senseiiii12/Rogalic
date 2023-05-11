@@ -29,7 +29,7 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(getMMana(15));
+        StartCoroutine(getMMana(30));
         plStats = this;
         health = maxHealth;
     }
@@ -84,7 +84,7 @@ public class PlayerStats : MonoBehaviour
             }
             else
                 mana += manaIteration;
-                yield return new WaitForSeconds(5);
+                yield return new WaitForSeconds(2);
         }
     }
 

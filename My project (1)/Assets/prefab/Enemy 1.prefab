@@ -547,7 +547,9 @@ MonoBehaviour:
   force: 2
   cooldown: 66
   prefCoin: {fileID: 2897149420085708789, guid: 4fa7c8fc84a018646b51be08fa632542, type: 3}
-  prefBottle: {fileID: 7046930563200747483, guid: b09109f304795c44b94858b3e98373a8, type: 3}
+  prefBottle_heal: {fileID: 7046930563200747483, guid: 06eb3eda8ab5e834faaaa4ee251aec25, type: 3}
+  prefBottle_mana: {fileID: 7046930563200747483, guid: b09109f304795c44b94858b3e98373a8, type: 3}
+  key: {fileID: 7046930563200747483, guid: 7129d6cb47e77b24bbfdaa6acc18dea9, type: 3}
   minDamage: 5
   maxDamage: 10
   hBarEnemy: {fileID: 2631690285186626000}
