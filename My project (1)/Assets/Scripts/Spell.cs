@@ -19,7 +19,6 @@ public class Spell : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && PlayerStats.plStats.mana > 0)
         {
             PlayerStats.plStats.mana -= 10;
-            PlayerStats.plStats.sliderMana.value = PlayerStats.plStats.mana;
             GameObject spell = Instantiate(pref, transform.position, Quaternion.identity);
             Vector2 mPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 myPosition = transform.position;

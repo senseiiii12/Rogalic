@@ -18,7 +18,6 @@ public class PlayerStats : MonoBehaviour
     public float force;
 
 
-    //public GameObject hBarPlayer;
     public Slider hBarPlayerSlider;
     public Slider sliderMana;
 
@@ -38,12 +37,12 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        hBarPlayerSlider.value = health;
+        sliderMana.value = mana;
     }
     public void getDamage(float damage)
     {
         health -= damage;
-        hBarPlayerSlider.value = health;
         if (health <= 0)
         {
             Die();
@@ -56,7 +55,6 @@ public class PlayerStats : MonoBehaviour
     public void getHeal(float heal)
     {
         health += heal;
-        hBarPlayerSlider.value = health;
         if (health > maxHealth)
         {
             health = maxHealth;
@@ -66,7 +64,6 @@ public class PlayerStats : MonoBehaviour
     public void getMana(float manaa)
     {
         mana += manaa;
-        sliderMana.value = mana;
         if (mana > maxMana)
         {
             mana = maxMana;
@@ -75,19 +72,19 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator getMMana(float manaIteration)
     {
+        float difference;
         while (true)
         {
-            if (mana >= maxMana)
+            
+            difference = maxMana - mana;
+            if (manaIteration > difference)
             {
-                mana = maxMana;
+                mana += difference;
                 yield return null;
             }
             else
-            {
                 mana += manaIteration;
-                sliderMana.value = mana;
-                yield return new WaitForSeconds(2);
-            }
+                yield return new WaitForSeconds(5);
         }
     }
 
