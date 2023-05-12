@@ -16,6 +16,7 @@ public class PlayerStats : MonoBehaviour
     public float mana;
     public float maxMana;
     public float force;
+    public float killCount;
 
 
     public Slider hBarPlayerSlider;

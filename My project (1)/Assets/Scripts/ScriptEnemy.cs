@@ -55,6 +55,7 @@ public class ScriptEnemy : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        PlayerStats.plStats.killCount += 1;
         Instantiate(prefGraveStone, gameObject.transform.position, Quaternion.identity);
         int random = UnityEngine.Random.Range(1,5);
         switch (random)

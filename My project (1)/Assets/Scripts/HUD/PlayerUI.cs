@@ -14,6 +14,7 @@ public class PlayerUI : MonoBehaviour
     public GameObject moveSpeed;
     public GameObject damage;
     public GameObject maxHealth;
+    public GameObject killCount;
 
 
     // Start is called before the first frame update
@@ -34,5 +35,6 @@ public class PlayerUI : MonoBehaviour
         damage.GetComponent<Text>().text = PlayerStats.plStats.maxDamage.ToString();
         maxHealth.GetComponent<Text>().text = PlayerStats.plStats.maxHealth.ToString();
         attackSpeed.GetComponent<Text>().text = PlayerStats.plStats.force.ToString();
+        killCount.GetComponent<Text>().text = PlayerStats.plStats.killCount.ToString();
     }
 }
