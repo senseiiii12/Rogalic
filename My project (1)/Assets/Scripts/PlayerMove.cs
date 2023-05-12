@@ -52,7 +52,7 @@ public class PlayerMove : MonoBehaviour
 
     public void CreateRandomEnemy()
     {
-        int random = UnityEngine.Random.Range(1, 10);
+        int random = UnityEngine.Random.Range(1, 6);
         for (int i = 0; i < random; i++)
         {
             Vector3 point = new Vector3(UnityEngine.Random.Range(-17, 17), UnityEngine.Random.Range(-8, 8), 0) + transform.position;

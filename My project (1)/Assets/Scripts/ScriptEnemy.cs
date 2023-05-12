@@ -16,6 +16,7 @@ public class ScriptEnemy : MonoBehaviour
     public float force;
     public float cooldown;
     public GameObject prefCoin;
+    public GameObject prefGraveStone;
     public GameObject prefBottle_heal;
     public GameObject prefBottle_mana;
     public GameObject key;
@@ -54,6 +55,7 @@ public class ScriptEnemy : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        Instantiate(prefGraveStone, gameObject.transform.position, Quaternion.identity);
         int random = UnityEngine.Random.Range(1,5);
         switch (random)
         {

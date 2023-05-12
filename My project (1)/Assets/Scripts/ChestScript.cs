@@ -10,6 +10,7 @@ public class ChestScript : MonoBehaviour
     public GameObject agent_coin;
     public GameObject agent_heal;
     public GameObject agent_mana;
+    public GameObject agent_key;
    
     // Start is called before the first frame update
     void Start()
@@ -41,22 +42,19 @@ public class ChestScript : MonoBehaviour
         int random;
         for(int i = 0; i < 5; i++)
         {
-            random = Random.Range(1, 4);
+            random = Random.Range(1, 101);
             Vector3 point = (Random.insideUnitSphere * spawnradius) + transform.position;
-            
 
-            switch (random)
+
+            if (random > 5)
             {
-                case 1: 
-                    Instantiate(agent_coin, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));
-                    break;
-                case 2:
-                    Instantiate(agent_heal, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));
-                    break;
-                case 3:
-                    Instantiate(agent_mana, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));
-                    break;
+                Instantiate(agent_coin, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));
             }
+            else
+            {
+                Instantiate(agent_key, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));
+            }          
+            
         }
     }
 }
