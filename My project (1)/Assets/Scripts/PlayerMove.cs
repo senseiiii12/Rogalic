@@ -13,15 +13,13 @@ public class PlayerMove : MonoBehaviour
     Vector2 direction;
     Animator animator;
     new Rigidbody2D rigidbody2D;
-    public GameObject enemy;
-    public GameObject chest;
+    
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
-        CreateRandomEnemy();
-        CreateRandomChest();
+        
     }
 
     // Update is called once per frame
@@ -50,25 +48,5 @@ public class PlayerMove : MonoBehaviour
         animator.SetFloat("DirectionY", y);
     }
 
-    public void CreateRandomEnemy()
-    {
-        int random = UnityEngine.Random.Range(1, 6);
-        for (int i = 0; i < random; i++)
-        {
-            Vector3 point = new Vector3(UnityEngine.Random.Range(-17, 17), UnityEngine.Random.Range(-8, 8), 0) + transform.position;
-            Instantiate(enemy, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));
-            
-        }
-    }
-
-    public void CreateRandomChest()
-    {
-        int random = UnityEngine.Random.Range(1, 10);
-        for (int i = 0; i < random; i++)
-        {
-            Vector3 point = new Vector3(UnityEngine.Random.Range(-17, 17), UnityEngine.Random.Range(-8, 8), 0) + transform.position;
-            Instantiate(chest, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));
-
-        }
-    }
+    
 }

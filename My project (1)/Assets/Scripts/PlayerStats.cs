@@ -17,27 +17,35 @@ public class PlayerStats : MonoBehaviour
     public float maxMana;
     public float force;
     public float killCount;
+    public float XpHero;
+    public float LevelHero;
 
 
     public Slider hBarPlayerSlider;
     public Slider sliderMana;
+    public Slider sliderXP;
 
     public int bitCoins;
     public int souls;
     public int keys;
 
+    public GameObject enemy;
+    public GameObject chest;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(getMMana(30));
+        StartCoroutine(getMMana(50));
         plStats = this;
         health = maxHealth;
+        CreateRandomChest();
     }
 
     // Update is called once per frame
     void Update()
     {
+        sliderXP.value = XpHero;
         hBarPlayerSlider.value = health;
         sliderMana.value = mana;
     }
@@ -76,7 +84,8 @@ public class PlayerStats : MonoBehaviour
         float difference;
         while (true)
         {
-            
+            CreateRandomEnemy();
+
             difference = maxMana - mana;
             if (manaIteration > difference)
             {
@@ -85,9 +94,25 @@ public class PlayerStats : MonoBehaviour
             }
             else
                 mana += manaIteration;
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(4);
+        }
+    }
+    public void CreateRandomEnemy()
+    {
+            Vector3 point = new Vector3(UnityEngine.Random.Range(-17, 17), UnityEngine.Random.Range(-8, 8), 0) + transform.position;
+            Instantiate(enemy, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));     
+    }
+
+    public void CreateRandomChest()
+    {
+        int random = UnityEngine.Random.Range(1, 10);
+        for (int i = 0; i < random; i++)
+        {
+            Vector3 point = new Vector3(UnityEngine.Random.Range(-17, 17), UnityEngine.Random.Range(-8, 8), 0) + transform.position;
+            Instantiate(chest, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));
+
         }
     }
 
-    
+
 }

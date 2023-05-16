@@ -2,7 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
+//using Unity.Mathematics;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,6 +20,8 @@ public class ScriptEnemy : MonoBehaviour
     public GameObject prefBottle_heal;
     public GameObject prefBottle_mana;
     public GameObject key;
+    public GameObject XP;
+
 
     public int minDamage;
     public int maxDamage;
@@ -73,10 +75,9 @@ public class ScriptEnemy : MonoBehaviour
                 Instantiate(key, gameObject.transform.position, Quaternion.identity);
                 break;
         }
-        
-        
-        
+        CreateXP();
     }
+
     void enemyShooting()
     {
         GameObject spell = Instantiate(pref, transform.position, Quaternion.identity);
@@ -96,4 +97,17 @@ public class ScriptEnemy : MonoBehaviour
             stats.getDamage(damage); 
         }
     }
+
+
+    public void CreateXP()
+    {
+        int random = UnityEngine.Random.Range(1, 5);
+        for (int i = 0; i < random; i++)
+        {           
+            Vector3 point = (UnityEngine.Random.insideUnitSphere * 2) + transform.position;
+            Instantiate(XP, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));                   
+        }
+    }
+
+
 }

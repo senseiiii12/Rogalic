@@ -15,6 +15,7 @@ public class PlayerUI : MonoBehaviour
     public GameObject damage;
     public GameObject maxHealth;
     public GameObject killCount;
+    public GameObject CountLevel;
 
 
     // Start is called before the first frame update
@@ -31,10 +32,14 @@ public class PlayerUI : MonoBehaviour
         countSouls.GetComponent<Text>().text = PlayerStats.plStats.souls.ToString();
         countKeys.GetComponent<Text>().text = PlayerStats.plStats.keys.ToString();
 
+
+        attackSpeed.GetComponent<Text>().text = PlayerStats.plStats.force.ToString();
         moveSpeed.GetComponent<Text>().text = PlayerStats.plStats.speed.ToString();
         damage.GetComponent<Text>().text = PlayerStats.plStats.maxDamage.ToString();
         maxHealth.GetComponent<Text>().text = PlayerStats.plStats.maxHealth.ToString();
-        attackSpeed.GetComponent<Text>().text = PlayerStats.plStats.force.ToString();
+        
         killCount.GetComponent<Text>().text = PlayerStats.plStats.killCount.ToString();
+        CountLevel.GetComponent<Text>().text = PlayerStats.plStats.LevelHero.ToString();
+
     }
 }
