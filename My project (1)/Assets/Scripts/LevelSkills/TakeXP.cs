@@ -17,7 +17,7 @@ public class TakeXP : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int randomXP = Random.Range(30, 50);
+        int randomXP = Random.Range(10, 40);
         if(collision.name == "Player")
         {
             if(randomXP >= (PlayerStats.plStats.sliderXP.maxValue - PlayerStats.plStats.sliderXP.value))
@@ -25,6 +25,7 @@ public class TakeXP : MonoBehaviour
                 PlayerStats.plStats.XpHero = 0;
                 PlayerStats.plStats.sliderXP.maxValue += 50;
                 PlayerStats.plStats.LevelHero += 1;
+                PlayerStats.plStats.skillPoint += 1;
                 
             }
             else

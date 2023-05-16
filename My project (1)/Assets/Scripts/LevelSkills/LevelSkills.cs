@@ -5,18 +5,22 @@ using UnityEngine.UI;
 
 public class LevelSkills : MonoBehaviour
 {
+    public static LevelSkills lvlskill;
     public GameObject levelSkillPanel;
     public Slider sliderAS;
+    public int countSlider;
+    
+
     
     void Start()
     {
-        sliderAS.minValue = PlayerStats.plStats.force;
+        lvlskill = this;
     }
 
    
     void Update()
     {
-        sliderAS.value = PlayerStats.plStats.force;
+        sliderAS.value = countSlider;
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (!levelSkillPanel.activeSelf)
@@ -31,7 +35,19 @@ public class LevelSkills : MonoBehaviour
     }
 
     public void UpSkillAS()
-    {
-        PlayerStats.plStats.force += 1; 
+    { 
+        if (PlayerStats.plStats.skillPoint > 0)
+        {
+            if (countSlider >= 10)
+            {
+                countSlider += 0;
+            }
+            else
+            {
+                countSlider++;
+                PlayerStats.plStats.force += 1;
+                PlayerStats.plStats.skillPoint--;
+            }
+        }           
     }
 }

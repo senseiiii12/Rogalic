@@ -16,6 +16,8 @@ public class PlayerUI : MonoBehaviour
     public GameObject maxHealth;
     public GameObject killCount;
     public GameObject CountLevel;
+    public GameObject CountSkillPoint;
+    public GameObject CountInSliderAS;
 
 
     // Start is called before the first frame update
@@ -40,6 +42,8 @@ public class PlayerUI : MonoBehaviour
         
         killCount.GetComponent<Text>().text = PlayerStats.plStats.killCount.ToString();
         CountLevel.GetComponent<Text>().text = PlayerStats.plStats.LevelHero.ToString();
+        CountSkillPoint.GetComponent<Text>().text = PlayerStats.plStats.skillPoint.ToString();
+        CountInSliderAS.GetComponent<Text>().text = LevelSkills.lvlskill.countSlider.ToString();
 
     }
 }

@@ -19,6 +19,7 @@ public class PlayerStats : MonoBehaviour
     public float killCount;
     public float XpHero;
     public float LevelHero;
+    public int skillPoint;
 
 
     public Slider hBarPlayerSlider;
