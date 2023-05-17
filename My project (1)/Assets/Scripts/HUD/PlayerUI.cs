@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
+    public static PlayerUI plUI; 
     public GameObject countCoin;
     public GameObject countSouls;
     public GameObject countKeys;
@@ -17,13 +18,22 @@ public class PlayerUI : MonoBehaviour
     public GameObject killCount;
     public GameObject CountLevel;
     public GameObject CountSkillPoint;
+
     public GameObject CountInSliderAS;
+    public GameObject CountInSliderMS;
+    public GameObject CountInSliderD;
+    public GameObject CountInSliderMH;
+
+    public GameObject plus_AS;
+    public GameObject plus_MS;
+    public GameObject plus_D;
+    public GameObject plus_MH;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        plUI = this;
         
     }
 
@@ -43,7 +53,18 @@ public class PlayerUI : MonoBehaviour
         killCount.GetComponent<Text>().text = PlayerStats.plStats.killCount.ToString();
         CountLevel.GetComponent<Text>().text = PlayerStats.plStats.LevelHero.ToString();
         CountSkillPoint.GetComponent<Text>().text = PlayerStats.plStats.skillPoint.ToString();
-        CountInSliderAS.GetComponent<Text>().text = LevelSkills.lvlskill.countSlider.ToString();
+
+        CountInSliderAS.GetComponent<Text>().text = LevelSkills.lvlskill.countSliderAS.ToString();
+        CountInSliderMS.GetComponent<Text>().text = LevelSkills.lvlskill.countSliderMS.ToString();
+        CountInSliderD.GetComponent<Text>().text = LevelSkills.lvlskill.countSliderD.ToString();
+        CountInSliderMH.GetComponent<Text>().text = LevelSkills.lvlskill.countSliderMH.ToString();
+
+        plus_AS.GetComponent<Text>().text = "+" + LevelSkills.lvlskill.plus_skillAS.ToString();
+        plus_MS.GetComponent<Text>().text = "+" + LevelSkills.lvlskill.plus_skillMS.ToString();
+        plus_D.GetComponent<Text>().text = "+" + LevelSkills.lvlskill.plus_skillD.ToString();
+        plus_MH.GetComponent<Text>().text = "+" + LevelSkills.lvlskill.plus_skillMH.ToString();
+
+
 
     }
 }

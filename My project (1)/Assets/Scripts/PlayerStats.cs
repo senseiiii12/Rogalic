@@ -38,6 +38,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         StartCoroutine(getMMana(50));
+        StartCoroutine(RandomChest());
         plStats = this;
         health = maxHealth;
         CreateRandomChest();
@@ -95,7 +96,7 @@ public class PlayerStats : MonoBehaviour
             }
             else
                 mana += manaIteration;
-                yield return new WaitForSeconds(4);
+                yield return new WaitForSeconds(3);
         }
     }
     public void CreateRandomEnemy()
@@ -105,13 +106,17 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void CreateRandomChest()
-    {
-        int random = UnityEngine.Random.Range(1, 10);
-        for (int i = 0; i < random; i++)
-        {
+    {  
             Vector3 point = new Vector3(UnityEngine.Random.Range(-17, 17), UnityEngine.Random.Range(-8, 8), 0) + transform.position;
-            Instantiate(chest, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));
+            Instantiate(chest, point, Quaternion.Euler(new Vector3(0f, 0f, 0f)));  
+    }
 
+    IEnumerator RandomChest()
+    {
+        while (true)
+        {
+            CreateRandomChest();
+            yield return new WaitForSeconds(16);
         }
     }
 

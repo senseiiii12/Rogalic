@@ -545,11 +545,11 @@ MonoBehaviour:
   health: 100
   pref: {fileID: 2567180294300579655, guid: ad945ddbdf746204485729adb6e19aac, type: 3}
   force: 1
-  cooldown: 33
+  cooldown: 2.5
   prefCoin: {fileID: 2897149420085708789, guid: 4fa7c8fc84a018646b51be08fa632542, type: 3}
   prefGraveStone: {fileID: 3957539038779333723, guid: e63e4a174fb80f640b993ac42dc573c7, type: 3}
-  prefBottle_heal: {fileID: 3930224419376919329, guid: 05bd5c88816de1d42a889ca43d6141cc, type: 3}
-  prefBottle_mana: {fileID: 5390098600839908719, guid: 0292b52cf680ed441afc227eac47cdc6, type: 3}
+  prefBottle_heal: {fileID: 7046930563200747483, guid: 06eb3eda8ab5e834faaaa4ee251aec25, type: 3}
+  prefBottle_mana: {fileID: 7046930563200747483, guid: b09109f304795c44b94858b3e98373a8, type: 3}
   key: {fileID: 7046930563200747483, guid: 7129d6cb47e77b24bbfdaa6acc18dea9, type: 3}
   XP: {fileID: 513560722825623728, guid: fc0364bdec1b0db4e9e5accb77418fe6, type: 3}
   minDamage: 2

@@ -55,27 +55,27 @@ public class ScriptEnemy : MonoBehaviour
     }
 
     private void Die()
-    {
-        Destroy(gameObject);
+    {       
         PlayerStats.plStats.killCount += 1;
         Instantiate(prefGraveStone, gameObject.transform.position, Quaternion.identity);
         int random = UnityEngine.Random.Range(1,5);
         switch (random)
         {
             case 1: 
-                Instantiate(prefCoin, gameObject.transform.position, Quaternion.identity);
+                Instantiate(prefCoin, gameObject.transform.position + new Vector3(-1f,0f,0f), Quaternion.identity);
                 break;
             case 2:
-                Instantiate(prefBottle_heal, gameObject.transform.position, Quaternion.identity);
+                Instantiate(prefBottle_heal, gameObject.transform.position + new Vector3(-1.5f, 0f, 0f), Quaternion.identity);
                 break ;
             case 3:
-                Instantiate(prefBottle_mana, gameObject.transform.position, Quaternion.identity);
+                Instantiate(prefBottle_mana, gameObject.transform.position + new Vector3(1f, 1f, 0f), Quaternion.identity);
                 break;
             case 4:
-                Instantiate(key, gameObject.transform.position, Quaternion.identity);
+                Instantiate(key, gameObject.transform.position + new Vector3(1f, -1f, 0f), Quaternion.identity);
                 break;
         }
         CreateXP();
+        Destroy(gameObject);
     }
 
     void enemyShooting()
