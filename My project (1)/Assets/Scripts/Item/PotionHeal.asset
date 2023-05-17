@@ -16,3 +16,5 @@ MonoBehaviour:
   itemName: HealBottle
   value: 20
   icon: {fileID: -1894406376, guid: 36871e2be3be15c46abe814ea7c3015c, type: 3}
+  type: 0
+  prefab: {fileID: 3930224419376919329, guid: 05bd5c88816de1d42a889ca43d6141cc, type: 3}

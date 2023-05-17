@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
     public float mana;
     public float maxMana;
     public float force;
-    public float killCount;
+    public float killCount; 
     public float XpHero;
     public float LevelHero;
     public int skillPoint;

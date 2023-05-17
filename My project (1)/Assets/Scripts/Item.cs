@@ -9,9 +9,12 @@ public class Item : ScriptableObject
     public string itemName;
     public int value;
     public Sprite icon;
+    public ItemType type;
+    public GameObject prefab;
     public enum ItemType
     {
-        Potion,
+        PotionHeal,
+        PotionMana,
         Weapon
     }
     void Start()

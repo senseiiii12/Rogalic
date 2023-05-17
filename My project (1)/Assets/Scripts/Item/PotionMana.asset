@@ -16,3 +16,5 @@ MonoBehaviour:
   itemName: ManaBottle
   value: 25
   icon: {fileID: 1566947837, guid: 36871e2be3be15c46abe814ea7c3015c, type: 3}
+  type: 1
+  prefab: {fileID: 5390098600839908719, guid: 0292b52cf680ed441afc227eac47cdc6, type: 3}

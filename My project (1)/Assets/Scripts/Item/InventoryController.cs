@@ -24,12 +24,17 @@ public class InventoryController : MonoBehaviour
     {
         items.Remove(item);
     }
-    public void ListItems()
+
+    public void clear()
     {
-        foreach(Transform item in ItemContent)
+        foreach (Transform item in ItemContent)
         {
             Destroy(item.gameObject);
         }
+    }
+    public void ListItems()
+    {
+        
         foreach(Item item in items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
@@ -70,7 +75,7 @@ public class InventoryController : MonoBehaviour
             else
             {
                 inventoryPanel.SetActive(false);
-                ListItems();
+                clear();
             }
         }
     }

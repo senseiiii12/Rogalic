@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58d4bd68a3113da459cec2b17b7d9d26, type: 3}
-  m_Name: NewItem
+  m_Name: OverSpeed
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
-  value: 0
-  icon: {fileID: 0}
+  id: 3
+  itemName: Host
+  value: 10
+  icon: {fileID: 1205874455, guid: 36871e2be3be15c46abe814ea7c3015c, type: 3}
+  type: 2
+  prefab: {fileID: 3930224419376919329, guid: 825e63e00d85eba4dafea9a8b3efd8a4, type: 3}
