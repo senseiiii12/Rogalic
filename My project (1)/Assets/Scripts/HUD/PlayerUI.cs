@@ -29,6 +29,9 @@ public class PlayerUI : MonoBehaviour
     public GameObject plus_D;
     public GameObject plus_MH;
 
+    public GameObject HP_text;
+    public GameObject Mana_text;
+
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +66,11 @@ public class PlayerUI : MonoBehaviour
         plus_MS.GetComponent<Text>().text = "+" + LevelSkills.lvlskill.plus_skillMS.ToString();
         plus_D.GetComponent<Text>().text = "+" + LevelSkills.lvlskill.plus_skillD.ToString();
         plus_MH.GetComponent<Text>().text = "+" + LevelSkills.lvlskill.plus_skillMH.ToString();
+
+        HP_text.GetComponent<Text>().text = PlayerStats.plStats.health.ToString();
+        Mana_text.GetComponent<Text>().text = PlayerStats.plStats.mana.ToString();
+
+
 
 
 

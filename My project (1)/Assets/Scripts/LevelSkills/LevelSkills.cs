@@ -42,18 +42,18 @@ public class LevelSkills : MonoBehaviour
                 levelSkillPanel.SetActive(false);  
             }
         }
-    }
-    private void FixedUpdate()
-    {
         sliderAS.value = countSliderAS;
         sliderMS.value = countSliderMS;
         sliderD.value = countSliderD;
         sliderMH.value = countSliderMH;
     }
+    private void FixedUpdate()
+    {
+        
+    }
 
     public void UpSkillAS()
     {
-        PlayerUI.plUI.plus_AS.SetActive(true);
         if (PlayerStats.plStats.skillPoint > 0)
         {
             if (countSliderAS >= 10)
@@ -62,6 +62,7 @@ public class LevelSkills : MonoBehaviour
             }
             else
             {
+                PlayerUI.plUI.plus_AS.SetActive(true);
                 countSliderAS++;
                 plus_skillAS++;
                 PlayerStats.plStats.force += 1;
@@ -70,8 +71,7 @@ public class LevelSkills : MonoBehaviour
         }           
     }
     public void UpSkillMS()
-    {
-        PlayerUI.plUI.plus_MS.SetActive(true);
+    {      
         if (PlayerStats.plStats.skillPoint > 0)
         {
             if (countSliderMS >= 10)
@@ -80,6 +80,7 @@ public class LevelSkills : MonoBehaviour
             }
             else
             {
+                PlayerUI.plUI.plus_MS.SetActive(true);
                 countSliderMS++;
                 plus_skillMS++;
                 PlayerStats.plStats.speed += 1;
@@ -89,8 +90,7 @@ public class LevelSkills : MonoBehaviour
     }
 
     public void UpSkillD()
-    {
-        PlayerUI.plUI.plus_D.SetActive(true);
+    {    
         if (PlayerStats.plStats.skillPoint > 0)
         {
             if (countSliderD >= 10)
@@ -99,6 +99,7 @@ public class LevelSkills : MonoBehaviour
             }
             else
             {
+                PlayerUI.plUI.plus_D.SetActive(true);
                 countSliderD++;
                 plus_skillD += 10;
                 PlayerStats.plStats.maxDamage += 10;
@@ -109,8 +110,7 @@ public class LevelSkills : MonoBehaviour
     }
 
     public void UpSkillMH()
-    {
-        PlayerUI.plUI.plus_MH.SetActive(true);
+    {   
         if (PlayerStats.plStats.skillPoint > 0)
         {
             if (countSliderMH >= 10)
@@ -119,6 +119,7 @@ public class LevelSkills : MonoBehaviour
             }
             else
             {
+                PlayerUI.plUI.plus_MH.SetActive(true);
                 countSliderMH++;
                 plus_skillMH += 25;
                 PlayerStats.plStats.maxHealth += 25;

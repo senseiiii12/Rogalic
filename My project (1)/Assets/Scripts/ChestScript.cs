@@ -32,8 +32,9 @@ public class ChestScript : MonoBehaviour
             animator.SetBool("isOpen", true);
             PlayerStats.plStats.keys -= 1;
             CreateAgent();
-
+            Destroy(gameObject, 4);
         }
+
         
     }
     public void CreateAgent()
