@@ -7,6 +7,7 @@ public class Spell : MonoBehaviour
 {
     
     public GameObject pref;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -32,5 +33,9 @@ public class Spell : MonoBehaviour
             Debug.Log("no mana");
         }
 
+        
+
     }
+
+    
 }

@@ -33,6 +33,8 @@ public class PlayerStats : MonoBehaviour
     public GameObject enemy;
     public GameObject chest;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,7 @@ public class PlayerStats : MonoBehaviour
         sliderXP.value = XpHero;
         hBarPlayerSlider.value = health;
         sliderMana.value = mana;
+        
     }
     public void getDamage(float damage)
     {
@@ -119,6 +122,8 @@ public class PlayerStats : MonoBehaviour
             yield return new WaitForSeconds(16);
         }
     }
+
+    
 
 
 }
